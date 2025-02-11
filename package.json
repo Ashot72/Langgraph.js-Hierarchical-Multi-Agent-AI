@@ -1,0 +1,37 @@
+{
+  "name": "hierarchicalagent",
+  "version": "1.0.0",
+  "description": "Hierarchical Agent",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx --no-warnings -r dotenv/config src/index.ts dotenv_config_path=.env",
+    "start-research": "tsx --no-warnings -r dotenv/config src/test/researchAgent.ts dotenv_config_path=.env",
+    "start-doc": "tsx --no-warnings -r dotenv/config src/test/docAgent.ts dotenv_config_path=.env",
+    "start-chart": "tsx --no-warnings -r dotenv/config src/test/chartAgent.ts dotenv_config_path=.env"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/community": "^0.3.29",
+    "@langchain/core": "^0.3.39",
+    "@langchain/langgraph": "^0.2.45",
+    "@langchain/openai": "^0.4.3",
+    "@prisma/client": "^6.3.1",
+    "canvas": "^3.1.0",
+    "chart.js": "^4.4.7",
+    "cheerio": "^1.0.0",
+    "colors": "^1.4.0",
+    "langchain": "^0.2.5",
+    "nodemailer": "^6.10.0",
+    "readline": "^1.3.0",
+    "tslab": "^1.0.22",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "prisma": "^5.8.1",
+    "tsx": "^3.12.3",
+    "typescript": "^5.0.0"
+  }
+}

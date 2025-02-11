@@ -1,0 +1,332 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:18.0pt;line-height:107%'>Hierarchical Multi-Agent AI in
+LangGraph.js</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Video Link: <a
+href="https://youtu.be/uoLzeRC3-_8" target="_blank">https://youtu.be/uoLzeRC3-_8</a></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>GitHub
+Repository: <a
+href="https://github.com/Ashot72/Langgraph.js-Hierarchical-Multi-Agent-AI"
+target="_blank">https://github.com/Ashot72/Langgraph.js-Hierarchical-Multi-Agent-AI</a></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><a
+href="https://langchain-ai.github.io/langgraphjs/" target="_blank">LangGraph.js</a>&nbsp;is
+a library for building stateful, multi-actor applications with LLMs, used to
+create agent and multi-agent workflows. Compared to other</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>LLM
+frameworks, it offers these core benefits; cycles, controllability, and
+persistence.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In AI,
+hierarchical multi-agent systems refer to structured arrangements where
+multiple agents work together under a layered or tiered system. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The <i>Supervisor</i>
+(or Controller) oversees and coordinates the lower-level agents to ensure
+efficient task execution. In the app we can do this by</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>composing different
+subgraphs and creating a top-level supervisor agent, along with mid-level agents.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1425 height=385 id="Picture 1"
+src="doc_files/image001.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 1</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The
+supervisor routes the task to the respective agent by selecting the <b>next</b>
+role. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1154 height=879 id="Picture 2"
+src="doc_files/image002.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 2</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The user
+asks the question, and it is sent to the ResearchTeam to gather information,
+either by using <i>TavilySearch</i> or by scraping the web with <i>Cheero</i>. It
+can alternate between </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>these two
+tools several times before obtaining the information.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1491 height=758 id="Picture 4"
+src="doc_files/image003.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 3</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Once the
+information is obtained, it redirects to the document writing team to write the
+content. After writing, it can read and update the information. It follows this
+sequence: first, it calls </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>the <i>Write
+tool</i>, then the <i>Reading tool</i>, followed by the <i>Update tool</i>. This
+is not the pattern AI follows every time. It may simply write the information
+into the database without any updates afterward.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1324 height=865 id="Picture 5"
+src="doc_files/image004.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 4</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Here is
+Document Writing Team.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1243 height=759 id="Picture 6"
+src="doc_files/image005.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 5</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>After
+writing it into the database, it redirects to the Chart Generator and Email
+Notification Team. Note, that the Supervisor may redirect from the Research
+Team to the </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Document
+Writing Team, and then decide to return to the Research Team again and so on.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1313 height=878 id="Picture 7"
+src="doc_files/image006.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 6</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The Chart Generator
+and Email Notification Team.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1322 height=702 id="Picture 8"
+src="doc_files/image007.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 7</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:107%'><a
+href="https://www.langchain.com/langsmith" target="_blank">LangSmith</a><span
+style='font-style:normal'>&nbsp;is a platform designed to assist with the
+debugging, testing, and optimization of large language model (LLM)
+applications, particularly in production environments.</span></span></i></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>It provides
+tools to monitor model performance, trace execution flows, and evaluate LLM
+interactions, ensuring they operate efficiently and as expected.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1301 height=729 id="Picture 9"
+src="doc_files/image008.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 8</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>From the
+LangSmith window, I obtained the text before and after the update. The
+Supervisor decided to call the update tool, and the difference is minor in this
+case.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1058 height=564 id="Picture 10"
+src="doc_files/image009.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 9</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>For the
+question, <i>please retrieve the popular products of the Lightning Tools
+company (including their names and descriptions), write a summary of them, and
+then plot a pie chart</i>, it found ten products.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1523 height=713 id="Picture 11"
+src="doc_files/image010.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 10</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Actually,
+those ten products are found under the Products tab.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1485 height=786 id="Picture 12"
+src="doc_files/image011.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 11</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>For the
+chart, we use the Chart.js library, and based on the prompt, it generates
+different charts such as line, bar, pie, etc.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1228 height=633 id="Picture 13"
+src="doc_files/image012.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 12</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Here is the
+chart for the question above, emailed as an attachment.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1355 height=405 id="Picture 14"
+src="doc_files/image013.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 13</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We asked the
+second question: <i>How do the American people view Trump</i></span><span
+style='font-size:14.0pt;line-height:107%;color:black'> </span><i><span
+style='font-size:14.0pt;line-height:107%'>'s work attitude after his election?
+Please write a document that outlines the various </span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:107%'>groups
+who support or oppose it, and then create a bar chart to visualize the data.</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></i></p>
+
+<p class=MsoNormal><img border=0 width=1060 height=599 id="Picture 15"
+src="doc_files/image014.png"></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:107%'>Figure 14</span></i></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>This is the
+bar chart generated.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1378 height=710 id="Picture 16"
+src="doc_files/image015.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 15</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We save the
+response and the chart as base64 into the database. Based on the data, you can
+generate a web dashboard with the chart to analyze the response. We send the
+chart </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>as an email
+attachment by reading the content and base64 chart data, then converting it
+into an attachment.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1467 height=827 id="Picture 17"
+src="doc_files/image016.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 16</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You can run
+each agent separately to understand it, and for the chart agent, it will
+generate a chart.png file.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1270 height=836 id="Picture 18"
+src="doc_files/image017.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 17</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Sending
+emails is tricky when using the NodeMailer package. If you specify your Gmail
+username and password, it will not work. Google has changed its policy
+regarding this feature,</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>rendering it
+ineffective in resolving the problem. Thankfully, there is a solution that
+involves enabling 2-Step Verification and generating an app password.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img width=1404 height=668 src="doc_files/image018.png"
+align=left hspace=12><span style='font-size:14.0pt;line-height:107%'><br
+clear=all>
+Figure 18</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Navigate to <a
+href="https://myaccount.google.com/u/2/security?hl=en" target="_blank">https://myaccount.google.com/u/2/security?hl=en</a>
+ enable 2-Step Verification, and create an app password, which I have already
+done. Then, put the app password in the .env file.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=856 height=667 id="Picture 20"
+src="doc_files/image019.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 18</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You must
+define the correct entries in the <i>.env</i> file, which should be created from
+<i>env.example.txt </i>file.</span></p>
+
+</div>
+
+</body>
+
+</html>
