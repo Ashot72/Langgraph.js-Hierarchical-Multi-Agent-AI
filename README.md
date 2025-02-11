@@ -1,6 +1,6 @@
 # Hierarchical Multi-Agent AI in LangGraph.js
 In AI, hierarchical multi-agent systems refer to structured arrangements where multiple agents work together under a layered or tiered system. 
-The Supervisor (or Controller) oversees and coordinates the lower-level agents to ensure efficient task execution. In the app we can do this by
+The Supervisor (or Controller) oversees and coordinates the lower-level agents to ensure efficient task execution. In an app we can do this by
 composing different subgraphs and creating a top-level supervisor agent, along with mid-level agents.
 
 In this Hierarchical Multi-Agent system, we created three independent agents, where the supervisor can redirect to each of them using the 'next' role. This demonstrates that the app can be composed of not just one, but multiple independent agents working together. The first agent researches the given question, the second generates a document and saves it into the database, and the third generates a chart (using Chart.js) and sends an email to the admin using different tools. Note that the supervisor may decide to call the agents (as well as the tools) multiple times and in different orders until the task is completed. Since the data content and chart information are stored in the database, a web dashboard can be created to analyze the data. However, in this app, I only email the result along with the chart. You can run each agent separately to understand it better.
