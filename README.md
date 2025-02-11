@@ -9,7 +9,7 @@ For example, I asked the AI for the popular products of the Lightning Tools [Lig
 
 [LangGraph.js](https://langchain-ai.github.io/langgraphjs/) is a library for building stateful, multi-actor applications with LLMs, used to create agent and multi-agent workflows. Compared to other LLM frameworks, it offers these core benefits; cycles, controllability, and persistence.
 
-![graph image](https://github.com/Ashot72/Langgraph.js-Hierarchical-Multi-Agent-AI/multiAgent.png)
+![graph image](https://github.com/Ashot72/Langgraph.js-Hierarchical-Multi-Agent-AI/blob/main/multiAgent.png)
 
 As a cloud-based database, [MongoDB](https://www.mongodb.com/atlas/database) is used with [Prisma ORM](https://www.prisma.io/ ). 
 
@@ -45,4 +45,4 @@ To get started.
 
 Go to [Hierarchical Multi-Agent AI in LangGraph.js Video](https://youtu.be/uoLzeRC3-_8) page
 
-Go to [Hierarchical Multi-Agent AI in LangGraph.js Description](https://github.com/Ashot72/Langgraph.js-Hierarchical-Multi-Agent-AI/doc.html) page
+Go to [Hierarchical Multi-Agent AI in LangGraph.js Description](https://ashot72.github.io/Langgraph.js-Hierarchical-Multi-Agent-AI/doc.html) page
