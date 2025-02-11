@@ -43,6 +43,6 @@ To get started.
          npm run start-chart
 ```
 
-Go to [Hierarchical Multi-Agent AI in LangGraph.js Video](https://youtu.be/uoLzeRC3-_8) page
+Go to [Hierarchical Multi-Agent AI in LangGraph.js Video](https://youtu.be/uoLzeRC3-_8) page 
 
 Go to [Hierarchical Multi-Agent AI in LangGraph.js Description](https://ashot72.github.io/Langgraph.js-Hierarchical-Multi-Agent-AI/doc.html) page
